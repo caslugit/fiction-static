@@ -3,7 +3,7 @@
 html { background:#f7f3f1; }
 body { margin:0; color:var(--ink); background:radial-gradient(circle at 15% 12%,rgba(174,130,87,.11),transparent 34%),radial-gradient(circle at 88% 46%,rgba(141,35,79,.09),transparent 40%),linear-gradient(155deg,#fcf9f7 0%,#f4eeee 50%,#faf7f4 100%); font-family:"DM Sans",sans-serif; position:relative; isolation:isolate; overflow-x:hidden; }
 body::before { content:""; position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.18; background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.1'/%3E%3C/svg%3E"); }
-.magic-backdrop { position:fixed; inset:-8vh -5vw; z-index:0; pointer-events:none; overflow:hidden; opacity:.74; }
+.magic-backdrop { position:fixed; inset:-8vh -5vw; z-index:0; pointer-events:none; overflow:hidden; opacity:.86; }
 .magic-backdrop svg { width:110%; height:110%; }
 .magic-trail { fill:none; stroke:url(#magicGold); stroke-linecap:round; stroke-width:2.7; vector-effect:non-scaling-stroke; stroke-dasharray:3 16 54 22 2 30; opacity:.1; animation:magic-sequence 42s linear infinite; }
 .magic-trail-b { stroke-width:2.1; stroke-dasharray:2 20 38 34; animation-delay:6s; }
@@ -12,7 +12,12 @@ body::before { content:""; position:fixed; inset:0; z-index:0; pointer-events:no
 .magic-trail-e { stroke-width:1.9; stroke-dasharray:2 22 68 30; animation-delay:24s; }
 .magic-trail-f { stroke-width:2.2; stroke-dasharray:3 20 40 36; animation-delay:30s; }
 .magic-trail-g { stroke-width:1.8; stroke-dasharray:1 19 58 25; animation-delay:36s; }
-.magic-stars { opacity:.44; }
+.magic-trail-h { stroke-width:1.7; stroke-dasharray:2 25 42 31; animation-delay:3s; }
+.magic-trail-i { stroke-width:2.15; stroke-dasharray:3 22 64 37; animation-delay:15s; }
+.magic-trail-j { stroke-width:1.65; stroke-dasharray:2 28 52 34; animation-delay:27s; }
+.magic-trail-k { stroke-width:2; stroke-dasharray:2 20 44 29; animation-delay:39s; }
+.magic-rose { stroke:url(#magicRose); }
+.magic-stars { opacity:.58; animation:magic-twinkle 6s ease-in-out infinite alternate; }
 main,.topbar { position:relative; z-index:1; }
 .topbar { height:76px; padding:0 clamp(24px,6vw,96px); display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(176,139,79,.18); background:rgba(251,248,244,.94); }
 .brand { color:var(--ink); text-decoration:none; font:32px "DM Serif Display",serif; letter-spacing:-1px; }
@@ -52,6 +57,7 @@ input:focus,textarea:focus,select:focus { border-color:var(--berry); box-shadow:
 .loader { width:54px; height:54px; border:2px solid rgba(255,255,255,.16); border-top-color:var(--peach); border-radius:50%; animation:spin 1s linear infinite; }
 @keyframes spin { to { transform:rotate(360deg); } }
 @keyframes magic-sequence { 0%{opacity:.1;stroke-dashoffset:180} 6%{opacity:.22} 14%{opacity:.78} 24%{opacity:.66} 34%{opacity:.1;stroke-dashoffset:-180} 100%{opacity:.1;stroke-dashoffset:-180} }
+@keyframes magic-twinkle { from{opacity:.34} to{opacity:.68} }
 .story { position:relative; }
 .story h2 { font:46px/1.05 "DM Serif Display",serif; color:#fff; margin:16px 0; }
 .synopsis { color:#cdbfc7; font-style:italic; line-height:1.65; padding-bottom:25px; border-bottom:1px solid rgba(255,255,255,.12); }
@@ -103,7 +109,7 @@ input:focus,textarea:focus,select:focus { border-color:var(--berry); box-shadow:
 .lab-result-body p { white-space:pre-wrap; }
 .lab-empty { margin-top:28px; padding:28px; border:1px dashed var(--line); border-radius:14px; color:var(--muted); text-align:center; }
 @media(max-width:850px){ .workspace{grid-template-columns:1fr}.preview{min-height:580px;max-height:none}.grid-3{grid-template-columns:1fr}.story-form{padding:30px}.hero{padding-top:48px}.topbar{padding:0 24px}.lab{padding:30px}.lab-heading{align-items:flex-start;flex-direction:column}.lab-summary{grid-template-columns:repeat(2,1fr)}.lab-result summary{align-items:flex-start;flex-direction:column}.lab-result-metrics{justify-content:flex-start}.magic-backdrop{opacity:.58;inset:-4vh -28vw}.magic-trail{stroke-width:2}.magic-trail-b{stroke-width:1.6} }
-@media(prefers-reduced-motion:reduce){ .magic-trail{animation:none!important;opacity:.24;stroke-dashoffset:0}.magic-backdrop{opacity:.34} }
+@media(prefers-reduced-motion:reduce){ .magic-trail,.magic-stars{animation:none!important}.magic-trail{opacity:.24;stroke-dashoffset:0}.magic-stars{opacity:.42}.magic-backdrop{opacity:.34} }
 
 
 /* GitHub Pages demo */
