@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Demonstração pública do Fiction, um estúdio de histórias com inteligência artificial." />
+    <title>Fiction — demonstração pública</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="magic-backdrop" aria-hidden="true">
+      <svg viewBox="0 0 1600 1200" preserveAspectRatio="xMidYMid slice" role="presentation">
+        <defs>
+          <linearGradient id="magicGold" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#8d6844" stop-opacity="0.08" />
+            <stop offset="0.28" stop-color="#b88d5e" stop-opacity="0.78" />
+            <stop offset="0.62" stop-color="#d6b98a" stop-opacity="0.9" />
+            <stop offset="1" stop-color="#8f6948" stop-opacity="0.1" />
+          </linearGradient>
+        </defs>
+        <path class="magic-trail magic-trail-a" pathLength="1000" d="M-120 260 C180 40 360 480 640 236 S1110 76 1380 330 S1680 610 1510 820" />
+        <path class="magic-trail magic-trail-b" pathLength="1000" d="M80 1120 C250 820 470 980 610 720 S930 400 1120 620 S1370 1030 1700 790" />
+        <path class="magic-trail magic-trail-c" pathLength="1000" d="M-150 680 C120 540 260 770 460 640 S760 430 930 250 S1320 -40 1660 140" />
+        <path class="magic-trail magic-trail-d" pathLength="1000" d="M-90 1010 C160 1160 330 840 560 980 S890 1160 1080 920 S1390 570 1690 690" />
+        <path class="magic-trail magic-trail-e" pathLength="1000" d="M-180 420 C70 570 290 300 520 450 S830 690 1040 470 S1390 180 1700 390" />
+        <path class="magic-trail magic-trail-f" pathLength="1000" d="M260 -110 C420 120 210 310 430 420 S780 390 840 650 S980 1090 1280 1140" />
+        <path class="magic-trail magic-trail-g" pathLength="1000" d="M1390 -100 C1190 140 1450 320 1240 470 S910 620 980 850 S1110 1160 760 1300" />
+        <g class="magic-stars" fill="#b78d62">
+          <circle cx="148" cy="176" r="2.2" /><circle cx="1320" cy="148" r="1.8" />
+          <circle cx="1180" cy="1010" r="2.4" /><circle cx="315" cy="945" r="1.6" />
+          <path d="M1410 520 l4 10 10 4-10 4-4 10-4-10-10-4 10-4z" />
+          <path d="M210 590 l3 8 8 3-8 3-3 8-3-8-8-3 8-3z" />
+        </g>
+      </svg>
+    </div>
+
+    <div class="demo-banner"><strong>Demonstração pública</strong><span>Esta versão não chama a IA nem salva dados. O resultado abaixo é uma simulação interativa.</span></div>
+    <header class="topbar">
+      <a class="brand" href="#">fiction<span>✦</span></a>
+      <span class="access-status ready" role="status">Demo pronta</span>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">ESTÚDIO DE HISTÓRIAS COM IA</p>
+        <h1>O fim da história é<br /><em>onde você quiser.</em></h1>
+        <p class="intro">Experimente o fluxo do Fiction sem cadastro e sem informar chave de API.</p>
+      </section>
+
+      <section class="workspace">
+        <form id="storyForm" class="story-form">
+          <div class="section-heading"><span>01</span><div><h2>Construa seu universo</h2><p>Alguns detalhes já são suficientes para começar.</p></div></div>
+          <label>Fandom ou universo<input name="fandom" required minlength="2" placeholder="Ex.: Percy Jackson, Naruto, universo original…" /></label>
+          <label>Sua ideia<textarea name="premise" required minlength="10" rows="5" placeholder="E se a missão tivesse dado errado — e somente a rival pudesse consertar tudo?"></textarea></label>
+          <label>Personagens<input name="characters" placeholder="Nomes, relações ou características importantes" /></label>
+          <div class="grid-3">
+            <label>Gênero<select name="genre"><option>Romance</option><option selected>Aventura</option><option>Fantasia</option><option>Drama</option><option>Comédia</option><option>Mistério</option></select></label>
+            <label>Tom<select name="tone"><option selected>Cinematográfico</option><option>Fofo e leve</option><option>Sombrio</option><option>Intenso</option><option>Melancólico</option></select></label>
+            <label>Classificação<select name="rating"><option selected>Livre</option><option>12 anos</option><option>14 anos</option><option>16 anos</option><option>18 anos</option></select></label>
+          </div>
+          <div class="grid-2">
+            <label>Capítulos<input name="chapters" type="number" min="1" max="3" value="1" /></label>
+            <label>Palavras por capítulo<input name="words_per_chapter" type="number" min="300" max="800" step="100" value="400" /></label>
+          </div>
+          <label>Notas opcionais<textarea name="notes" rows="3" placeholder="POV, trope, final desejado, detalhes que não podem faltar…"></textarea></label>
+          <button class="generate" type="submit"><span>Gerar demonstração</span><b>→</b></button>
+          <p class="privacy">Nenhuma informação deste formulário sai do seu navegador nesta demonstração.</p>
+        </form>
+
+        <aside class="preview" id="preview">
+          <div class="empty-state" id="emptyState"><div class="orbit">✦</div><h3>Sua próxima obsessão<br />começa aqui.</h3><p>Preencha o briefing para ver uma amostra do Fiction.</p></div>
+          <div class="loading hidden" id="loading"><div class="loader"></div><p>Simulando arcos, conflitos e capítulos…</p><small>A versão completa usa o motor de IA do Fiction.</small></div>
+          <article class="story hidden" id="story"><p class="story-kicker">AMOSTRA DEMONSTRATIVA</p><h2 id="storyTitle"></h2><p class="synopsis" id="storySynopsis"></p><div id="chapters"></div><div class="story-actions"><button id="continueButton" class="download" type="button">Continuar +1 capítulo</button><button id="downloadButton" class="download" type="button">Baixar como .txt</button></div></article>
+        </aside>
+      </section>
+
+      <section class="lab" id="fictionLab">
+        <div class="lab-heading">
+          <div><p class="eyebrow">FICTION LAB · SIMULAÇÃO</p><h2>Conheça o painel de testes.</h2><p>A demonstração reproduz uma rodada fictícia para mostrar como o Fiction mede velocidade, tamanho, falhas e repetição.</p></div>
+          <button class="lab-start" id="labStartButton" type="button">Executar simulação</button>
+        </div>
+        <div class="lab-progress hidden" id="labProgress" aria-live="polite"><div class="lab-progress-copy"><strong id="labProgressTitle">Preparando simulação…</strong><span id="labProgressText">0 de 5 casos concluídos</span></div><div class="lab-track"><span id="labProgressBar"></span></div></div>
+        <div class="lab-report hidden" id="labReport">
+          <div class="lab-summary">
+            <div><span>Sucessos</span><strong id="labSuccesses">5</strong></div><div><span>Falhas</span><strong id="labFailures">0</strong></div><div><span>Tempo médio</span><strong id="labAverageTime">18s</strong></div><div><span>Média de palavras</span><strong id="labAverageWords">402</strong></div><div><span>Repetições</span><strong id="labRepetitions">1</strong></div>
+          </div>
+          <div class="lab-results" id="labResults"></div>
+        </div>
+        <div class="lab-empty" id="labEmpty">Nenhuma simulação executada nesta sessão.</div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
