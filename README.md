@@ -14,6 +14,10 @@ Versão pública e interativa da interface do Fiction, preparada para GitHub Pag
 
 Esta publicação **não executa IA**, não possui backend, não acessa o SQLite e não envia nem armazena os dados digitados. Os textos e resultados do laboratório são demonstrativos. O aplicativo completo permanece no repositório principal e depende do servidor Python e do provedor de IA configurado.
 
+## Sincronia com o Fiction principal
+
+As mudanças visuais, responsivas e de interação do frontend principal devem ser reproduzidas nesta demonstração. Recursos dependentes de servidor recebem uma simulação equivalente e identificada, sem copiar chaves, banco, endpoints locais ou segredos.
+
 ## Executar localmente
 
 Abra `index.html` no navegador ou sirva a pasta com qualquer servidor HTTP estático.
